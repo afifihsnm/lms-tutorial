@@ -1,7 +1,8 @@
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { db } from "@/db-drizzle";
 import { isTeacher } from "@/lib/teacher";
+import { Course } from "@/db-drizzle/migrations/schema";
 
 export async function POST(
   req:Request,
@@ -14,12 +15,10 @@ export async function POST(
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const course = await db.course.create({
-      data: {
-        userId,
-        title
-      }
-    });
+    const course = await db.insert(Course).values({
+      userId: userId,
+      title: title,
+    }).returning({ id: Course.id });
 
     return NextResponse.json(course);
   } catch (error) {

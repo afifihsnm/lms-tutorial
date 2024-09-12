@@ -2,7 +2,9 @@ import Mux from "@mux/mux-node";
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
-import { db } from "@/lib/db";
+import { db } from "@/db-drizzle";
+import { Chapter, Course, MuxData } from "@/db-drizzle/migrations/schema";
+import { and, eq } from "drizzle-orm";
 
 const { video } = new Mux();
 
@@ -17,19 +19,20 @@ export async function DELETE(
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const course = await db.course.findUnique({
-      where: {
-        id: params.courseId,
-        userId
-      },
-      include: {
-        chapters: {
-          include: {
-            muxData: true,
-          }
-        }
-      }
-    });
+    const course = await db.select().from(Course).where(and(eq(Course.id, params.courseId), eq(Course.userId, userId))).leftJoin(Chapter, eq(Course.id, Chapter.courseId)).leftJoin(MuxData, eq(Chapter.id, MuxData.chapterId));
+    // const course = await db.course.findUnique({
+    //   where: {
+    //     id: params.courseId,
+    //     userId
+    //   },
+    //   include: {
+    //     chapters: {
+    //       include: {
+    //         muxData: true,
+    //       }
+    //     }
+    //   }
+    // });
 
     if (!course) {
       return new NextResponse("Not Found", { status: 404 });

@@ -1,0 +1,610 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "6",
+  "dialect": "sqlite",
+  "tables": {
+    "Course": {
+      "name": "Course",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "userId": {
+          "autoincrement": false,
+          "name": "userId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "autoincrement": false,
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "autoincrement": false,
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "imageUrl": {
+          "autoincrement": false,
+          "name": "imageUrl",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "price": {
+          "autoincrement": false,
+          "name": "price",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "isPublished": {
+          "default": false,
+          "autoincrement": false,
+          "name": "isPublished",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "categoryId": {
+          "autoincrement": false,
+          "name": "categoryId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "createdAt": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "createdAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updatedAt": {
+          "autoincrement": false,
+          "name": "updatedAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {
+        "Course_title_idx": {
+          "name": "Course_title_idx",
+          "columns": [
+            "title"
+          ],
+          "isUnique": false
+        },
+        "Course_categoryId_idx": {
+          "name": "Course_categoryId_idx",
+          "columns": [
+            "categoryId"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "Course_categoryId_Category_id_fk": {
+          "name": "Course_categoryId_Category_id_fk",
+          "tableFrom": "Course",
+          "tableTo": "Category",
+          "columnsFrom": [
+            "categoryId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "cascade"
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "Category": {
+      "name": "Category",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "autoincrement": false,
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {
+        "Category_name_key": {
+          "name": "Category_name_key",
+          "columns": [
+            "name"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    },
+    "Attachment": {
+      "name": "Attachment",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "autoincrement": false,
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "url": {
+          "autoincrement": false,
+          "name": "url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "courseId": {
+          "autoincrement": false,
+          "name": "courseId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "createdAt": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "createdAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updatedAt": {
+          "autoincrement": false,
+          "name": "updatedAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {
+        "Attachment_courseId_idx": {
+          "name": "Attachment_courseId_idx",
+          "columns": [
+            "courseId"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "Attachment_courseId_Course_id_fk": {
+          "name": "Attachment_courseId_Course_id_fk",
+          "tableFrom": "Attachment",
+          "tableTo": "Course",
+          "columnsFrom": [
+            "courseId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "Chapter": {
+      "name": "Chapter",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "title": {
+          "autoincrement": false,
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "autoincrement": false,
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "videoUrl": {
+          "autoincrement": false,
+          "name": "videoUrl",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "position": {
+          "autoincrement": false,
+          "name": "position",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "isPublished": {
+          "default": false,
+          "autoincrement": false,
+          "name": "isPublished",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "isFree": {
+          "default": false,
+          "autoincrement": false,
+          "name": "isFree",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "courseId": {
+          "autoincrement": false,
+          "name": "courseId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "createdAt": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "createdAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updatedAt": {
+          "autoincrement": false,
+          "name": "updatedAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {
+        "Chapter_courseId_idx": {
+          "name": "Chapter_courseId_idx",
+          "columns": [
+            "courseId"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "Chapter_courseId_Course_id_fk": {
+          "name": "Chapter_courseId_Course_id_fk",
+          "tableFrom": "Chapter",
+          "tableTo": "Course",
+          "columnsFrom": [
+            "courseId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "MuxData": {
+      "name": "MuxData",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "assetId": {
+          "autoincrement": false,
+          "name": "assetId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "playbackId": {
+          "autoincrement": false,
+          "name": "playbackId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "chapterId": {
+          "autoincrement": false,
+          "name": "chapterId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {
+        "MuxData_chapterId_key": {
+          "name": "MuxData_chapterId_key",
+          "columns": [
+            "chapterId"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "MuxData_chapterId_Chapter_id_fk": {
+          "name": "MuxData_chapterId_Chapter_id_fk",
+          "tableFrom": "MuxData",
+          "tableTo": "Chapter",
+          "columnsFrom": [
+            "chapterId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "UserProgress": {
+      "name": "UserProgress",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "userId": {
+          "autoincrement": false,
+          "name": "userId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "chapterId": {
+          "autoincrement": false,
+          "name": "chapterId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "isCompleted": {
+          "default": false,
+          "autoincrement": false,
+          "name": "isCompleted",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "createdAt": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "createdAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updatedAt": {
+          "autoincrement": false,
+          "name": "updatedAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {
+        "UserProgress_userId_chapterId_key": {
+          "name": "UserProgress_userId_chapterId_key",
+          "columns": [
+            "userId",
+            "chapterId"
+          ],
+          "isUnique": true
+        },
+        "UserProgress_chapterId_idx": {
+          "name": "UserProgress_chapterId_idx",
+          "columns": [
+            "chapterId"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "UserProgress_chapterId_Chapter_id_fk": {
+          "name": "UserProgress_chapterId_Chapter_id_fk",
+          "tableFrom": "UserProgress",
+          "tableTo": "Chapter",
+          "columnsFrom": [
+            "chapterId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "Purchase": {
+      "name": "Purchase",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "userId": {
+          "autoincrement": false,
+          "name": "userId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "courseId": {
+          "autoincrement": false,
+          "name": "courseId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "createdAt": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "createdAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updatedAt": {
+          "autoincrement": false,
+          "name": "updatedAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {
+        "Purchase_userId_courseId_key": {
+          "name": "Purchase_userId_courseId_key",
+          "columns": [
+            "userId",
+            "courseId"
+          ],
+          "isUnique": true
+        },
+        "Purchase_courseId_idx": {
+          "name": "Purchase_courseId_idx",
+          "columns": [
+            "courseId"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "Purchase_courseId_Course_id_fk": {
+          "name": "Purchase_courseId_Course_id_fk",
+          "tableFrom": "Purchase",
+          "tableTo": "Course",
+          "columnsFrom": [
+            "courseId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "StripeCustomer": {
+      "name": "StripeCustomer",
+      "columns": {
+        "id": {
+          "autoincrement": false,
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "userId": {
+          "autoincrement": false,
+          "name": "userId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "stripeCustomerId": {
+          "autoincrement": false,
+          "name": "stripeCustomerId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "createdAt": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "createdAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updatedAt": {
+          "autoincrement": false,
+          "name": "updatedAt",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {
+        "StripeCustomer_stripeCustomerId_key": {
+          "name": "StripeCustomer_stripeCustomerId_key",
+          "columns": [
+            "stripeCustomerId"
+          ],
+          "isUnique": true
+        },
+        "StripeCustomer_userId_key": {
+          "name": "StripeCustomer_userId_key",
+          "columns": [
+            "userId"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
