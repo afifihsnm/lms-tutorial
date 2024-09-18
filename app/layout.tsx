@@ -10,6 +10,8 @@ import {
 import "./globals.css";
 import { ToastProvider } from "@/components/providers/toaster-provider";
 import { ConfettiProvider } from "@/components/providers/confetti-provider";
+import "@mantine/core/styles.css";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,10 +28,13 @@ export default function RootLayout({
   return (
     <ClerkProvider afterSignOutUrl="/">
       <html lang="en">
+        <head>
+          <ColorSchemeScript />
+        </head>
         <body className={inter.className}>
           <ConfettiProvider />
           <ToastProvider />
-          {children}
+          <MantineProvider>{children}</MantineProvider>
         </body>
       </html>
     </ClerkProvider>
