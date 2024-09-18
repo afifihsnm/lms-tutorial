@@ -4,6 +4,7 @@ import { Chapter, Course, UserProgress } from "@prisma/client";
 import { redirect } from "next/navigation";
 import { CourseSidebarItem } from "./course-sidebar-item";
 import { CourseProgress } from "@/components/course-progress";
+import classes from "./course-sidebar.module.css";
 
 interface CourseSidebarProps {
   course: Course & {
