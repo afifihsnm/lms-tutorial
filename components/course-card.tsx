@@ -43,8 +43,8 @@ export const CourseCard = ({
         </Card.Section>
 
         <Card.Section className={classes.section} mt="md">
-          <Group justify="apart">
-            <Text fz="lg" fw={500}>
+          <Group justify="apart" className="inline-block">
+            <Text fz="lg" fw={500} lineClamp={1}>
               {title}
             </Text>
             <Badge size="sm" variant="light">
