@@ -45,9 +45,10 @@ export const columns: ColumnDef<Course>[] = [
     },
     cell: ({ row }) => {
       const price = parseFloat(row.getValue("price") || "0");
-      const formatted = new Intl.NumberFormat("en-US", {
+      const formatted = new Intl.NumberFormat("id-ID", {
         style: "currency",
-        currency: "USD"
+        currency: "IDR",
+        minimumFractionDigits: 0
       }).format(price);
 
       return <div>{formatted}</div>
