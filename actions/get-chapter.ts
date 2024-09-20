@@ -30,6 +30,7 @@ export const GetChapter = async ({
       },
       select: {
         price: true,
+        title: true,
       }
     });
 
@@ -47,6 +48,7 @@ export const GetChapter = async ({
     let muxData = null;
     let attachments: Attachment[] = [];
     let nextChapter: Chapter | null = null;
+    let previousChapter: Chapter | null = null;
 
     if (purchase) {
       attachments = await db.attachment.findMany({
@@ -75,6 +77,19 @@ export const GetChapter = async ({
           position: "asc",
         }
       });
+
+      previousChapter = await db.chapter.findFirst({
+        where: {
+          courseId,
+          isPublished: true,
+          position: {
+            lt: chapter?.position,
+          }
+        },
+        orderBy: {
+          position: "desc",
+        }
+      });
     }
 
     const userProgress = await db.userProgress.findUnique({
@@ -92,6 +107,7 @@ export const GetChapter = async ({
       muxData,
       attachments,
       nextChapter,
+      previousChapter,
       userProgress,
       purchase
     };
@@ -103,6 +119,7 @@ export const GetChapter = async ({
       muxData: null,
       attachments: [],
       nextChapter: null,
+      previousChapter: null,
       userProgress: null,
       purchase: null,
     };

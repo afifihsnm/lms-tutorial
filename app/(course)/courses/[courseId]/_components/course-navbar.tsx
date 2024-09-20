@@ -1,6 +1,7 @@
 import NavbarRoutes from "@/components/navbar-routes";
 import { Chapter, Course, UserProgress } from "@prisma/client"
 import { CourseMobileSidebar } from "./course-mobile-sidebar";
+import Logo from "@/app/(dashboard)/_components/logo";
 
 interface CourseNavbarProps {
   course: Course & {
@@ -21,6 +22,9 @@ export const CourseNavbar = ({
         course={course}
         progressCount={progressCount}
       />
+      <div className="p-2">
+        <Logo />
+      </div>
       <NavbarRoutes />
     </div>
   )

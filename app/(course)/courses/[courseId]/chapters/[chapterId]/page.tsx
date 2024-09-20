@@ -8,6 +8,8 @@ import { Separator } from "@/components/ui/separator";
 import { Preview } from "@/components/preview";
 import { File } from "lucide-react";
 import { CourseProgressButton } from "./_components/course-progress-button";
+import { CoursePrevNextButton } from "./_components/course-prev-next-button";
+import { CourseBreadcrumb } from "./_components/course-breadcrumb";
 
 const ChapterIdPage = async ({
   params
@@ -26,6 +28,7 @@ const ChapterIdPage = async ({
     muxData,
     attachments,
     nextChapter,
+    previousChapter,
     userProgress,
     purchase,
   } = await GetChapter({
@@ -55,7 +58,23 @@ const ChapterIdPage = async ({
           label="You need to purchase this course to watch this chapter."
         />
       )}
-      <div className="flex flex-col max-w-4xl mx-auto pb-20">
+        <div className="pt-4 px-4 flex flex-row items-center justify-between pb-0 h-12">
+          <CourseBreadcrumb
+            courseId={params.courseId}
+            courseTitle={course.title}
+            chapterTitle={chapter.title}
+          />
+          {nextChapter || previousChapter ? (
+            <CoursePrevNextButton
+              courseId={params.courseId}
+              nextChapterId={nextChapter?.id}
+              prevChapterId={previousChapter?.id}
+            />
+          ) : (
+            <></>
+          )}
+        </div>
+      <div className="flex flex-col max-w-[100rem] mx-auto pb-20">
         <div className="p-4">
           <VideoPlayer
             chapterId={params.chapterId}

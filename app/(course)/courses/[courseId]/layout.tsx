@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { CourseSidebar } from "./_components/course-sidebar";
 import { CourseNavbar } from "./_components/course-navbar";
+import { CollapsibleLayout } from "./_components/collapsible-layout";
 
 const CourseLayout = async ({
   children,
@@ -48,23 +49,22 @@ const CourseLayout = async ({
   const progressCount = await getProgress(userId, course.id);
 
   return (
-    <div className="h-full">
-      <div className="h-[80px] md:pl-80 fixed inset-y-0 w-full z-50">
-        <CourseNavbar
-          course={course}
-          progressCount={progressCount}
-        />
-      </div>
-      <div className="hidden md:flex h-full w-80 flex-col fixed inset-y-0 z-50">
+    <CollapsibleLayout
+      sidebar={
         <CourseSidebar
           course={course}
           progressCount={progressCount}
         />
-      </div>
-      <main className="md:pl-80 pt-[80px] h-full">
+      }
+      navbar={
+        <CourseNavbar
+          course={course}
+          progressCount={progressCount}
+        />
+      }
+    >
       {children}
-      </main>
-    </div>
+    </CollapsibleLayout>
   )
 }
  
