@@ -40,7 +40,7 @@ export const CourseSidebarItem = ({
       )}
     >
       <div className={cn(
-        "opacity-0 border-2 border-[#0056d2] h-full transition-all mr-4",
+        "opacity-0 border-2 border-[#0056d2] h-full transition-all mr-4 hover:opacity-100",
         isActive && "opacity-100",
         isCompleted && "text-black hover:bg-[#f2f5fa]"
       )} />
