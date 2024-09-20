@@ -24,16 +24,16 @@ export const CourseBreadcrumb = ({
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/home">
-            <House className="h-5 w-5" />
+            <House className="h-5 w-5 text-[#0056d2]" />
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href={`/courses/${courseId}`}>{courseTitle}</BreadcrumbLink>
+          <BreadcrumbLink href={`/courses/${courseId}`}><div className="text-[#0056d2]">{courseTitle}</div></BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>{chapterTitle}</BreadcrumbPage>
+          <BreadcrumbPage><div className="text-[#0056d2]">{chapterTitle}</div></BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, Menu } from "lucide-react"
+import { Menu } from "lucide-react"
 import { cn } from '@/lib/utils';
 
 interface CollapsibleLayoutProps {
@@ -19,15 +19,15 @@ export const CollapsibleLayout = ({ children, sidebar, navbar }: CollapsibleLayo
       <div className="h-[75px] fixed inset-y-0 w-full z-50">
         {navbar}
       </div>
-      <div className={`hidden md:flex mt-[75px] h-full flex-col fixed inset-y-0 z-50 transition-all duration-300 ${isCollapsed ? 'w-[50px]' : 'w-80'}`}>
+      <div className={`hidden md:flex mt-[75px] h-full flex-col fixed inset-y-0 z-50 transition-all duration-300 ${isCollapsed ? 'w-[50px] border-r' : 'w-80 border-r'}`}>
         <div className="flex flex-col h-full">
-          <Button 
+          <Button
             onClick={() => setIsCollapsed(!isCollapsed)} 
-            variant="ghost" 
+            variant="coursera" 
             className={cn(
-              "w-full flex items-center justify-normal",
-              isCollapsed && "p-3",
-              !isCollapsed && "p-6"
+              "flex items-center transition-all duration-300",
+              isCollapsed && "w-[50px] pl-2 pr-1 py-1 justify-center",
+              !isCollapsed && "w-36 p-6 justify-normal ml-10 mt-4 mb-2"
             )}
           >
             <Menu className='mr-2' />

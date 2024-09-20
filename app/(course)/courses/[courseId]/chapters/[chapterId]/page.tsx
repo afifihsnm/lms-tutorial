@@ -46,7 +46,7 @@ const ChapterIdPage = async ({
 
   return (
     <div>
-      {userProgress?.isCompleted && (
+      {/* {userProgress?.isCompleted && (
         <Banner
           variant="success"
           label="You already completed this chapter."
@@ -57,7 +57,7 @@ const ChapterIdPage = async ({
           variant="warning"
           label="You need to purchase this course to watch this chapter."
         />
-      )}
+      )} */}
         <div className="pt-4 px-4 flex flex-row items-center justify-between pb-0 h-12">
           <CourseBreadcrumb
             courseId={params.courseId}

@@ -51,7 +51,7 @@ export const CoursePrevNextButton = ({
           onClick={onClick}
           disabled={isLoading}
           type="button"
-          variant="ghost"
+          variant="coursera"
           className="w-full md:w-auto"
         >
           <ChevronLeft className="h-4 w-4 mr-2" />
@@ -64,7 +64,7 @@ export const CoursePrevNextButton = ({
           onClick={onClick}
           disabled={isLoading}
           type="button"
-          variant="ghost"
+          variant="coursera"
           className="w-full md:w-auto"
         >
           Next
