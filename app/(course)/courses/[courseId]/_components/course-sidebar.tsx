@@ -34,8 +34,8 @@ export const CourseSidebar = async ({
   });
 
   return (
-    <div className="h-full border-r flex flex-col overflow-y-auto shadow-sm">
-      <div className="p-8 flex flex-col border-b">
+    <div className="h-full flex flex-col overflow-y-auto shadow-sm">
+      {/* <div className="p-8 flex flex-col">
         <h1 className="font-semibold">
           {course.title}
         </h1>
@@ -47,7 +47,10 @@ export const CourseSidebar = async ({
             />
           </div>
         )}
-      </div>
+      </div> */}
+      <button className="flex flex-col w-[70%] items-start gap-x-2 text-black text-medium font-semibold transition-all hover:bg-[#f2f5fa] ml-12 mb-2">
+        Setup Development
+      </button>
       <div className="flex flex-col w-full">
         {course.chapters.map((chapter) => (
           <CourseSidebarItem
@@ -60,6 +63,15 @@ export const CourseSidebar = async ({
           />
         ))}
       </div>
+      <button className="flex flex-col w-[70%] items-start gap-x-2 text-black text-medium font-semibold transition-all hover:bg-[#f2f5fa] ml-12 mb-2">
+        Database Schema
+      </button>
+      <button className="flex flex-col w-[70%] items-start gap-x-2 text-black text-medium font-semibold transition-all hover:bg-[#f2f5fa] ml-12 mb-2">
+        API Route
+      </button>
+      <button className="flex flex-col w-[70%] items-start gap-x-2 text-black text-medium font-semibold transition-all hover:bg-[#f2f5fa] ml-12 mb-2">
+        Create UI
+      </button>
     </div>
   )
 }

@@ -8,7 +8,7 @@ const AnalyticsPage = async () => {
   const { userId } = auth();
 
   if (!userId) {
-    return redirect("/");
+    return redirect("/sign-in");
   }
 
   const {
