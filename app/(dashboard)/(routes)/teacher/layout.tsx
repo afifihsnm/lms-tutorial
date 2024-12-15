@@ -9,8 +9,8 @@ const TeacherLayout = ({
 }) => {
   const { userId } = auth();
 
-  if (!isTeacher(userId)) {
-    return redirect("/home");
+  if (!userId) {
+    return redirect("/sign-in");
   }
 
   return <>{children}</>
