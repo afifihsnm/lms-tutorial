@@ -32,13 +32,13 @@ const NavbarRoutes = () => {
               Exit
             </Button>
           </Link>
-        ) : isTeacher(userId) ? (
+        ) : (
           <Link href="/teacher/courses">
             <Button size="sm" variant="ghost">
               Teacher mode
             </Button>
           </Link>
-        ) : null}
+        )}
         <UserButton afterSignOutUrl="/" />
       </div>
     </>
