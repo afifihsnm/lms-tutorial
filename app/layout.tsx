@@ -15,7 +15,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "simpLeMS",
-  description: "Learning Management System simplified.",
+  description: "Learning experience simplified.",
 };
 
 export default function RootLayout({
