@@ -7,8 +7,6 @@ import { LogOut } from "lucide-react";
 import Link from "next/link";
 import { SearchInput } from "./search-input";
 
-import { isTeacher } from "@/lib/teacher";
-
 const NavbarRoutes = () => {
   const { userId } = useAuth();
   const pathname = usePathname();
