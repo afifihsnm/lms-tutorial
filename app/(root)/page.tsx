@@ -214,6 +214,7 @@ export default async function LandingPage() {
         <div className="container flex flex-col gap-6">
           <Logo />
           <p className="text-neutral-500">© 2024 PT simpLeMS. All rights reserved.</p>
+          <p className="text-neutral-500"> Created with by <a href="https://www.linkedin.com/in/afifihsanmaulana">Afif Ihsan Maulana</a></p>
         </div>
       </footer>
     </div>
