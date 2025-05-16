@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎓 Modern Learning Management System (LMS)
 
-## Getting Started
+A powerful and responsive **Learning Management System (LMS)** built with **Next.js** and **TypeScript**, designed to streamline online education.  
+This platform features secure payments via **Xendit**, user authentication with **Clerk**, and robust data handling through **Prisma ORM**.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🧑‍🏫 Instructor & student portals
+- 📚 Course creation, enrollment, and progress tracking
+- 💳 Seamless and secure payment integration using **Xendit**
+- 🔐 Authentication & user management with **Clerk**
+- ⚡ Lightning-fast performance with **Next.js** + **TypeScript**
+- 🧩 Scalable backend powered by **Prisma** and PostgreSQL
+- 📱 Fully responsive and mobile-friendly
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Next.js](https://nextjs.org/) – React framework with SSR and API routes
+- [TypeScript](https://www.typescriptlang.org/) – Type safety
+- [Clerk](https://clerk.dev/) – Authentication and user management
+- [Xendit](https://xendit.co/) – Payment gateway integration
+- [Prisma](https://www.prisma.io/) – ORM for database access
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📸 Screenshots
+![Image](https://github.com/user-attachments/assets/ed4f1e24-3f5e-44bc-a6c7-80ba816213fb)
